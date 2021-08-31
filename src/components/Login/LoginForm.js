@@ -1,0 +1,110 @@
+import { useState } from "react";
+import logo from "./Slogo.png";
+import "./LogInForm.css";
+
+export default function LogInForm() {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const [error, setError] = useState(null);
+	const [isLoading, setLoading] = useState(false);
+
+	function handleEmailChange(e) {
+		setEmail(e.target.value);
+	}
+
+	function handlePwChange(e) {
+		setPassword(e.target.value);
+	}
+
+	async function handleSubmit(e) {
+		e.preventDefault();
+		if (!email && !password) {
+			return;
+		}
+
+		try {
+			const data = {
+				email,
+				password,
+			};
+
+			const endPoint = "http://206.189.91.54//api/v1/auth/sign_in";
+			const options = {
+				method: "post",
+				headers: {
+					"content-type": "application/json",
+				},
+				body: JSON.stringify(data),
+			};
+
+			setError(null);
+			setLoading(true);
+			const response = await fetch(endPoint, options);
+			const jsonData = await response.json();
+
+			if (response.status === 200) {
+				alert("login success!");
+				//save needed access data
+				const userData = {
+					"access-token": response.headers.get("access-token"),
+					expiry: response.headers.get("expiry"),
+					uid: response.headers.get("uid"),
+					id: jsonData.data.id,
+					client: response.headers.get("client"),
+				};
+				console.log(userData); //may save userData to context to access globally
+				setLoading(false);
+			} else {
+				//throw custom error that will go to catch block
+				throw { custom: jsonData?.errors?.[0] || "failed to login" };
+			}
+		} catch (err) {
+			//if error is not custom, then it must be something else
+			setError(err?.custom || "something wen't wrong");
+			setLoading(false);
+		}
+		setEmail("");
+		setPassword("");
+	}
+	return (
+		<form className="login-form" onSubmit={handleSubmit}>
+			<img className="login__slack-logo" src={logo} alt="logo" />
+			<p className="login__status">
+				{isLoading ? "..loading" : ""}
+				{error || ""}
+			</p>
+			<div className="login-container">
+				<label className="login__label">Email</label>
+				<input
+					className="login__input"
+					type="email"
+					onChange={handleEmailChange}
+					value={email}
+					placeholder="type your email here"
+					required
+				/>
+				<label className="login__label">Password</label>
+				<input
+					className="login__input"
+					type="password"
+					onChange={handlePwChange}
+					value={password}
+					pattern="{6,}"
+					placeholder="type your password here"
+					title="Must contain at least 8 or more characters"
+					required
+				/>
+			</div>
+
+			<div className="login__btns">
+				<button type="submit" className="login__action btn">
+					Sign In <i className="fas fa-sign-in-alt"></i>
+				</button>
+				<button type="button" className="signup btn">
+					Sign Up <i className="fab fa-slack"></i>
+				</button>
+			</div>
+		</form>
+	);
+}
