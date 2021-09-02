@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useUser } from "../../context/UseUser";
 
 const receiver = {
 	id: 32,
@@ -13,6 +14,7 @@ const loggedInUser = {
 };
 
 export default function Messages() {
+	const user = useUser();
 	//can be batched using useReducer hook
 	const [isLoading, setLoading] = useState(false);
 	const [messages, setMessages] = useState([]);
@@ -20,14 +22,7 @@ export default function Messages() {
 	useEffect(() => {
 		const endPoint = `http://206.189.91.54//api/v1/messages?receiver_class=User&receiver_id=${receiver.id}&sender_id=${loggedInUser.id}`;
 		const options = {
-			headers: {
-				cors: "no-cors",
-				//get header data from login response *see Login.js snippet
-				"access-token": "Q7h2aN07TFCt1J5UJF3E8A",
-				client: "IWStMJ7NjixPmLPQAiG6wQ",
-				expiry: "1626967169",
-				uid: "m1@m.com",
-			},
+			headers: user.playoad,
 		};
 
 		//Immediately invoked function expressions

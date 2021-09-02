@@ -1,7 +1,5 @@
 import { createContext, useReducer, useContext } from "react";
 
-const copier = (users) => users.map((users) => ({ ...users }));
-
 const initialState = [];
 const dispatchContext = createContext();
 const stateContext = createContext();
@@ -28,9 +26,7 @@ export function useUserDispatch() {
 export function reducerFn(state, action) {
 	switch (action.type) {
 		case "save user": {
-			const copy = copier(state);
-			copy.push(action.payload);
-			return copy;
+			return state.payload;
 		}
 	}
 }

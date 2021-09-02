@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo from "./Slogo.png";
 import "./LogInForm.css";
 import { useHistory, Link } from "react-router-dom";
-import { useUserDispatch } from "../../context/UseUser/UseUser";
+import { useUserDispatch } from "../../context/UseUser";
 
 export default function LogInForm() {
 	const history = useHistory();

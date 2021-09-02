@@ -6,7 +6,6 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path={"/"} component={LogIn} />
-				{/* <Route  path="/signup" component={SignUp} /> */}
 				<Route excat path={"/client"} component={Client} />
 			</Switch>
 		</Router>

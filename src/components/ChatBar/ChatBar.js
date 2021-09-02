@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useUser } from "../../context/UseUser/UseUser";
+import { useUser } from "../../context/UseUser";
 
 //HARD CODED PARTIES
 const receiverDetails = {
@@ -76,6 +76,7 @@ export default function ChatBar() {
 			setError(err?.custom || "something wen't wrong");
 			setLoading(false);
 		}
+		console.log(user);
 	}
 
 	return (
