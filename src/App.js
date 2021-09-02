@@ -6,14 +6,7 @@ function App() {
   return (
     <div className="App">
     
-        <Router>
-		<Switch>
-				
-				<Route  path={"/signup"} component={SignupForm} />
-				
-			</Switch>
-
-		</Router>
+     
      
    
     </div>
