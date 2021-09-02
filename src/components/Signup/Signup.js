@@ -108,7 +108,7 @@ export default function Signup() {
     <div>
         
 
-        <div className="ui form center">
+        <div className="ui form centered">
             
         <form className="   "  onSubmit={handleSubmit} style={{marginTop: "200px"}}>
       <h2>SIGNUP</h2> <br/> 
