@@ -1,8 +1,12 @@
 import { useState } from "react";
 import logo from "./Slogo.png";
 import "./LogInForm.css";
+import { useHistory, Link } from "react-router-dom";
+import { useUserDispatch } from "../../context/UseUser/UseUser";
 
 export default function LogInForm() {
+	const history = useHistory();
+	const userDispatcher = useUserDispatch();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -22,7 +26,6 @@ export default function LogInForm() {
 		if (!email && !password) {
 			return;
 		}
-
 		try {
 			const data = {
 				email,
@@ -44,7 +47,8 @@ export default function LogInForm() {
 			const jsonData = await response.json();
 
 			if (response.status === 200) {
-				alert("login success!");
+				history.push("/client");
+
 				//save needed access data
 				const userData = {
 					"access-token": response.headers.get("access-token"),
@@ -53,7 +57,8 @@ export default function LogInForm() {
 					id: jsonData.data.id,
 					client: response.headers.get("client"),
 				};
-				console.log(userData); //may save userData to context to access globally
+				userDispatcher({ type: "save user", payload: userData });
+				console.log(userDispatcher); //may save userData to context to access globally
 				setLoading(false);
 			} else {
 				//throw custom error that will go to catch block
@@ -64,8 +69,6 @@ export default function LogInForm() {
 			setError(err?.custom || "something wen't wrong");
 			setLoading(false);
 		}
-		setEmail("");
-		setPassword("");
 	}
 	return (
 		<form className="login-form" onSubmit={handleSubmit}>
@@ -77,20 +80,16 @@ export default function LogInForm() {
 			<div className="login-container">
 				<label className="login__label">Email</label>
 				<input
+					onChange={handleEmailChange}
 					className="login__input"
 					type="email"
-					onChange={handleEmailChange}
-					value={email}
 					placeholder="type your email here"
-					required
 				/>
 				<label className="login__label">Password</label>
 				<input
+					onChange={handlePwChange}
 					className="login__input"
 					type="password"
-					onChange={handlePwChange}
-					value={password}
-					pattern="{6,}"
 					placeholder="type your password here"
 					title="Must contain at least 8 or more characters"
 					required
@@ -101,9 +100,11 @@ export default function LogInForm() {
 				<button type="submit" className="login__action btn">
 					Sign In <i className="fas fa-sign-in-alt"></i>
 				</button>
-				<button type="button" className="signup btn">
-					Sign Up <i className="fab fa-slack"></i>
-				</button>
+				<Link to="/signup">
+					<button type="button" className="signup btn">
+						Sign Up <i className="fab fa-slack"></i>
+					</button>
+				</Link>
 			</div>
 		</form>
 	);
