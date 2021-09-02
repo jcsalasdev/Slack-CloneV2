@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Grid} from "semantic-ui-react"
+
 
 
 export default function Signup() {
@@ -105,7 +105,7 @@ export default function Signup() {
 
   return (
 
-    <Grid centered>
+    <div>
         
 
         <div className="ui form center">
@@ -157,6 +157,6 @@ export default function Signup() {
                 </form>
         </div>
     
-    </Grid>
+    </div>
   );
 }
