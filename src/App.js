@@ -1,7 +1,6 @@
 import LogIn from "./components/Login/LogIn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Client from "./components/Client/client";
-import "semantic-ui-css/semantic.min.css";
 
 function App() {
 	return (
