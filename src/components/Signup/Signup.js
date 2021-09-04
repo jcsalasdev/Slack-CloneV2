@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { Redirect, useHistory } from "react-router-dom";
 import "./Signup.css";
 
 export default function Signup() {
+	const history = useHistory();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmpass, setConfirmPass] = useState("");
@@ -50,8 +52,9 @@ export default function Signup() {
 
 			if (response.status === 200) {
 				alert("sign up success!");
-
+				history.push("/");
 				setLoading(false);
+				return <Redirect to="/" />;
 			} else {
 				throw {
 					custom: jsonData?.errors?.full_messages[0] || "failed to signup",

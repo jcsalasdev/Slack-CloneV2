@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import UsersProvider from "./context/UseUser";
+import UserProvider from "./context/UserProvider";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<UsersProvider>
+		<UserProvider>
 			<App />
-		</UsersProvider>
+		</UserProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

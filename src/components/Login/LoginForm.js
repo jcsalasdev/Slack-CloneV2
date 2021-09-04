@@ -2,11 +2,11 @@ import { useState } from "react";
 import logo from "./Slogo.png";
 import "./LogInForm.css";
 import { useHistory, Link } from "react-router-dom";
-import { useUserDispatch } from "../../context/UseUser";
+import { useSetUser } from "../../context/UserProvider";
 
 export default function LogInForm() {
 	const history = useHistory();
-	const userDispatcher = useUserDispatch();
+	const setUser = useSetUser();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -57,8 +57,8 @@ export default function LogInForm() {
 					id: jsonData.data.id,
 					client: response.headers.get("client"),
 				};
-				userDispatcher({ type: "save user", payload: userData });
-				console.log(userDispatcher); //may save userData to context to access globally
+				setUser({ type: "save", payload: userData });
+				console.log(userData); //may save userData to context to access globally
 				setLoading(false);
 			} else {
 				//throw custom error that will go to catch block

@@ -1,0 +1,12 @@
+li {
+	list-style: none;
+}
+.messages__list {
+	padding: 1rem;
+	margin-top: 0;
+	font-size: 1.3rem;
+	overflow-y: auto;
+}
+.messages__list::-webkit-scrollbar {
+	overflow-y: hidden;
+}

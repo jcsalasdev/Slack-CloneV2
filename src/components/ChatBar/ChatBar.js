@@ -1,40 +1,43 @@
 import { useState } from "react";
-import { useUser } from "../../context/UseUser";
-
-//HARD CODED PARTIES
+import { useGetUser } from "../../context/UserProvider";
 const receiverDetails = {
-	"access-token": "Ebezl71fGd1HMerZV2miHQ",
-	client: "mXb8sNDW9cl_kIkkH_noiw",
-	expiry: "1626966070",
-	uid: "m2@m.com",
-	id: 32, //only needed receiver data to send message
+	id: 2, //only needed receiver data to send message
 };
+//HARD CODED PARTIES
+// const receiverDetails = {
+// 	"access-token": "Ebezl71fGd1HMerZV2miHQ",
+// 	client: "mXb8sNDW9cl_kIkkH_noiw",
+// 	expiry: "1626966070",
+// 	uid: "m2@m.com",
+// 	id: 32, //only needed receiver data to send message
+// };
 
 // const senderDetails = {
 // 	//current user logged in
 // 	//get user detail after Login
-// 	"access-token": "g3c29Tkg2MS23vDdiPiDeQ",
-// 	client: "tdluJrvdfrqEmGV_nCLpvQ",
-// 	expiry: "1626966033",
-// 	uid: "m1@m.com",
-// 	id: 31,
+// 	"access-token": "IKtlykDtWRNk2lgG_hsWNw",
+// 	client: "XP6LS0giKvN1ezHm3eLlmg",
+// 	expiry: "1631875160",
+// 	id: 3,
+// 	uid: "meline@hotmail.com",
 // };
 
 export default function ChatBar() {
-	const user = useUser();
+	const user = useGetUser();
 	//state related to chatbar
 	const [text, setText] = useState("");
 
 	//states related to sending message - may be merge using useReducer hook
 	const [error, setError] = useState(null);
 	const [isLoading, setLoading] = useState(false);
-	const senderDetails = user.payload;
+	const senderDetails = user;
 
 	function handleTextChange(e) {
 		setText(e.target.value);
 	}
 
 	async function handleSubmit(e) {
+		console.log(user);
 		e.preventDefault();
 		if (!text) {
 			//if text is blank
@@ -44,7 +47,7 @@ export default function ChatBar() {
 			const endPoint = "http://206.189.91.54//api/v1/messages";
 			const data = {
 				receiver_id: receiverDetails.id,
-				receiver_class: "User", //"Channel" when sending to Channel??
+				receiver_class: "User" || "Channel", //"Channel" when sending to Channel??
 				body: text,
 			};
 
@@ -76,7 +79,6 @@ export default function ChatBar() {
 			setError(err?.custom || "something wen't wrong");
 			setLoading(false);
 		}
-		console.log(user);
 	}
 
 	return (
