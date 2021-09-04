@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Redirect } from "react-router-dom";
+import logo from "../Login/Slogo.png";
+import 'semantic-ui-css/semantic.min.css'
 import "./Signup.css";
 
 export default function Signup() {
@@ -49,7 +52,9 @@ export default function Signup() {
 			const jsonData = await response.json();
 
 			if (response.status === 200) {
+
 				alert("sign up success!");
+				return < Redirect to={"/"} /> 
 
 				setLoading(false);
 			} else {
@@ -67,51 +72,54 @@ export default function Signup() {
 	return (
 		<div className="signup-container">
 			<form
-				className="   "
+				class="ui form purple"
 				onSubmit={handleSubmit}
-				style={{ marginTop: "200px" }}
+				style={{ marginTop: "75px" }}
 			>
-				<h2>SIGNUP</h2> <br />
-				<p className="signup__status">{isLoading ? "..loading" : ""}</p>
+				{/* <h1 className="ui center aligned header white" style={{ color:"whitesmoke" }}>SIGNUP</h1> */}
+				<i class="chevron circle left"></i><img src={logo}  class="ui small left centered image" alt="logo" /><br />
+				<p className="signup__status" >{isLoading ? "..loading" : ""}</p>
 				<p className="signup__error">{error || ""}</p>
+				 <br />
 				<div className="">
-					<label>Email</label>
+					<label style={{ color:"whitesmoke",fontWeight:"bolder",fontSize:"20px" }}>Email</label>
 					<br />
 
 					<input
+								
 						type="email"
 						onChange={handleEmailChange}
 						value={email}
-						placeholder="email"
+						placeholder="Email"
 						style={{ width: "370px" }}
 						required
 					/>
 				</div>
 				<br />
-				<label>Password</label> <br />
+				<label style={{ color:"whitesmoke",fontWeight:"bolder",fontSize:"20px" }}>Password</label> <br />
 				<input
-					className="signup__input"
+					
 					type="password"
 					onChange={handlePwChange}
 					value={password}
-					placeholder="password"
+					placeholder="Password"
 					style={{ width: "370px" }}
 					required
 				/>
 				<br /> <br />
-				<label> Confirm Password</label> <br />
+				<label style={{ color:"whitesmoke", fontWeight:"bolder",fontSize:"20px" }}> Confirm Password</label> <br />
 				<input
-					className="signup__input"
+					
 					type="password"
 					onChange={handleConfirm}
 					value={confirmpass}
-					placeholder="password"
+					placeholder="Confirm password"
 					style={{ width: "370px" }}
 					required
 				/>
 				<br /> <br />
 				<br /> <br />
-				<button className="ui big button purple" type="submit">
+				<button className="ui big button black" type="submit">
 					SUBMIT
 				</button>
 			</form>
