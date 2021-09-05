@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory} from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 import logo from "../Login/Slogo.png";
 import 'semantic-ui-css/semantic.min.css'
 import "./Signup.css";
@@ -96,7 +96,7 @@ export default function Signup() {
 					/>
 				</div>
 				<br />
-				<label style={{ color:"whitesmoke",fontWeight:"bolder",fontSize:"20px" }}>Password</label> <br />
+				<label style={{ color:"whitesmoke",fontWeight:"bolder",fontSize:"20px"}}>Password</label> <br />
 				<input
 					
 					type="password"
@@ -117,11 +117,16 @@ export default function Signup() {
 					style={{ width: "370px" }}
 					required
 				/>
+					
 				<br /> <br />
-				<br /> <br />
+			
+				
 				<button className="ui big button black" type="submit">
 					SUBMIT
-				</button>
+				</button>	
+				<br /> <br />
+				<Link to="/">back to Sign In</Link>
+			
 			</form>
 		</div>
 	);
