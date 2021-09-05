@@ -39,3 +39,8 @@ a {
 	background-color: purple;
 	
 }
+
+a:hover,
+a:active {
+	color: white;
+}

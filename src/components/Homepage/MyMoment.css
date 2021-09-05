@@ -9,15 +9,15 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-weight: bold;
-	animation: animatedBackground 20s linear infinite alternate;
+	animation: animatedBackground 15s linear infinite alternate;
 }
 
 @keyframes animatedBackground {
 	from {
-	  background-position: 100% 0;
+	  background-position: right;
 	}
 	to {
-	  background-position: 0 0;
+	  background-position: left;
 	}
   }
 
@@ -34,7 +34,7 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	color: white;
-	font-size: 3rem;
+	font-size: 3.8rem;
 	margin-top: 1rem;
 	text-shadow: 3px 2px 5px black;
 }
@@ -51,6 +51,6 @@
 
 .welcome-container{
 	margin-top: 1.5rem;
-	background-color: rgba(128, 0, 128, 0.315);
+	background-color: rgba(128, 0, 128, 0.671);
 	border-radius: 10px;
 }

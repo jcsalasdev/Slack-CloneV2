@@ -79,6 +79,7 @@ export default function ChatBar() {
 			setError(err?.custom || "something wen't wrong");
 			setLoading(false);
 		}
+		setText("")
 	}
 
 	return (
