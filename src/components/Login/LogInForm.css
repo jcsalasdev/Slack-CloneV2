@@ -1,4 +1,4 @@
-.login-form {
+form.login-form {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -11,21 +11,21 @@
 
 	z-index: 3;
 }
-.login-container {
+div.login-container {
 	display: flex;
 	flex-direction: column;
 
 	margin-top: 1rem;
 }
 
-.login__slack-logo {
+img.login__slack-logo {
 	margin-top: 2rem;
 	object-fit: cover;
 }
-.login__status {
+p.login__status {
 	color: white;
 }
-.login__label {
+label.login__label {
 	text-align: start;
 	font-weight: bold;
 	color: white;
@@ -33,17 +33,17 @@
 	padding: 0.3rem 0;
 }
 
-.login__input {
+input.login__input {
 	padding: 0.3rem 0.5rem;
 	margin-bottom: 0.5rem;
 	font-size: 1.2rem;
 	border-radius: 10px;
 }
-.login__btns {
+div.login__btns {
 	margin-top: 1.5rem;
 }
 
-.btn {
+button.btn {
 	padding: 0.45rem 0.4rem 0.4rem 0.4rem;
 	margin: 0 0.7rem;
 	font-size: 1rem;

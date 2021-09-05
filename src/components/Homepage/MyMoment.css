@@ -1,14 +1,26 @@
 .moment-container {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	align-items: center;
+
 	width: 100%;
-	background-image: url("./homeBg.png");
+	background-image: url("pinpng.com-slack-logo-png-814209.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-weight: bold;
+	animation: animatedBackground 20s linear infinite alternate;
 }
+
+@keyframes animatedBackground {
+	from {
+	  background-position: 100% 0;
+	}
+	to {
+	  background-position: 0 0;
+	}
+  }
+
 .moment {
 	padding-right: 1rem;
 }
@@ -17,6 +29,28 @@
 }
 
 .Time {
-	font-size: 2.85rem;
-	margin-top: 0.5rem;
+	-webkit-text-stroke: 1px black;
+	background: -webkit-linear-gradient(#eee, #333);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: white;
+	font-size: 3rem;
+	margin-top: 1rem;
+	text-shadow: 3px 2px 5px black;
+}
+.welcome {
+	padding: .5rem 1.5rem;
+	font-size: 3rem;
+	color: white;
+	text-shadow: 3px 2px 5px black;
+	
+	
+	-webkit-text-stroke: 1px black;
+
+}
+
+.welcome-container{
+	margin-top: 1.5rem;
+	background-color: rgba(128, 0, 128, 0.315);
+	border-radius: 10px;
 }

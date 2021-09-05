@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useHistory} from "react-router-dom";
 import logo from "../Login/Slogo.png";
-import 'semantic-ui-css/semantic.min.css'
 import "./Signup.css";
 
 export default function Signup() {
@@ -77,16 +76,16 @@ export default function Signup() {
 				style={{ marginTop: "75px" }}
 			>
 				{/* <h1 className="ui center aligned header white" style={{ color:"whitesmoke" }}>SIGNUP</h1> */}
-				<i class="chevron circle left"></i><img src={logo}  class="ui small left centered image" alt="logo" /><br />
+				<i class="chevron circle left"></i><img src={logo}   class="image" alt="logo" /><br />
 				<p className="signup__status" >{isLoading ? "..loading" : ""}</p>
 				<p className="signup__error">{error || ""}</p>
 				 <br />
 				<div className="">
-					<label style={{ color:"whitesmoke",fontWeight:"bolder",fontSize:"20px" }}>Email</label>
+					<label  style={{ color:"whitesmoke",fontWeight:"bolder",fontSize:"22px" }}>Email</label>
 					<br />
 
 					<input
-								
+						className="input"		
 						type="email"
 						onChange={handleEmailChange}
 						value={email}
@@ -94,11 +93,12 @@ export default function Signup() {
 						style={{ width: "370px" }}
 						required
 					/>
+						
 				</div>
 				<br />
-				<label style={{ color:"whitesmoke",fontWeight:"bolder",fontSize:"20px"}}>Password</label> <br />
+				<label  style={{ color:"whitesmoke",fontWeight:"bolder",fontSize:"22px"}}>Password</label> <br />
 				<input
-					
+					className="input"
 					type="password"
 					onChange={handlePwChange}
 					value={password}
@@ -107,9 +107,9 @@ export default function Signup() {
 					required
 				/>
 				<br /> <br />
-				<label style={{ color:"whitesmoke", fontWeight:"bolder",fontSize:"20px" }}> Confirm Password</label> <br />
+				<label style={{ color:"whitesmoke", fontWeight:"bolder",fontSize:"22px"}}> Confirm Password</label> <br />
 				<input
-					
+					className="input"
 					type="password"
 					onChange={handleConfirm}
 					value={confirmpass}
@@ -121,7 +121,7 @@ export default function Signup() {
 				<br /> <br />
 			
 				
-				<button className="ui big button black" type="submit">
+				<button className="signup-btn" type="submit">
 					SUBMIT
 				</button>	
 				<br /> <br />
