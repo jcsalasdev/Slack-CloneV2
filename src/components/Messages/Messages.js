@@ -21,14 +21,12 @@ export default function Messages() {
 	const [messages, setMessages] = useState([]);
 	const [error, setError] = useState(null);
 
-	console.log("messages", messages);
-
 	useEffect(() => {
 		const endPoint = `http://206.189.91.54//api/v1/messages?receiver_class=User&receiver_id=${receiver.id}&sender_id=${user?.id}`;
 		const options = {
 			headers: user,
 		};
-
+	
 		//Immediately invoked function expressions
 		(async () => {
 			try {
@@ -51,7 +49,7 @@ export default function Messages() {
 				setLoading(false);
 			}
 		})(); //invocation here
-	}, []);
+	}, [messages]);
 
 	return (
 		<div className="messages">

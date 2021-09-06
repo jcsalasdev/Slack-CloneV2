@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Redirect } from "react-router";
 import { useGetUser } from "../../context/UserProvider";
 const receiverDetails = {
 	id: 2, //only needed receiver data to send message
@@ -31,6 +32,7 @@ export default function ChatBar() {
 	const [error, setError] = useState(null);
 	const [isLoading, setLoading] = useState(false);
 	const senderDetails = user;
+
 
 	function handleTextChange(e) {
 		setText(e.target.value);

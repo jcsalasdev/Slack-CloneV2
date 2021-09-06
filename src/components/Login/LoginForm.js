@@ -48,7 +48,6 @@ export default function LogInForm() {
 
 			if (response.status === 200) {
 				history.push("/client");
-
 				//save needed access data
 				const userData = {
 					"access-token": response.headers.get("access-token"),
