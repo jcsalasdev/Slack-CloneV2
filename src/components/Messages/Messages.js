@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGetUser } from "../../context/UserProvider";
-import "./Messages.css";
+import "./Messages.css";/* 
+import Moment from "react-moment"; */
 const receiver = {
 	id: 2,
 };
@@ -54,12 +55,15 @@ export default function Messages() {
 	return (
 		<div className="messages">
 			{(!isLoading && (
-				<ul className="messages__list">
+				<ul className="messages__list" style={{ height: "515px" }}>
+
 					{messages.map((message) => {
 						return (
-							<li key={message.id} className="messages__message">
-								{message.body}
-							</li>
+							<div className="user_icon"><i className="fas fa-user icon"></i><li key={message.id} className="messages__message">
+								<div className="msg_container"><p className="msg" style={{margin:"0"}}>{message.body}</p>
+								{/* { new Date(<Moment  className="chat_time"  format="LT" />)} */}</div>
+							</li></div>
+
 						);
 					})}
 				</ul>
