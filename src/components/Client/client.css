@@ -4,6 +4,8 @@
 	justify-content: space-between;
 
 	width: 60vw;
-	height: 80vh;
+	height: 85vh;
+	border-bottom: none;
 	border: 5px solid black;
 }
+

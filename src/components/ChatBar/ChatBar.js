@@ -82,15 +82,15 @@ export default function ChatBar() {
 	}
 
 	return (
-		<form className="chatbar" onSubmit={handleSubmit}>
+		<form className="chatbar"  onSubmit={handleSubmit} style={{borderTop:"2px solid black"}}>
 			<p>{error || ""}</p>
 			<input
 				type="text"
-				className="chatbar__field"
+				className="chatbar__field" style={{width:"90%", marginRight:"5px", height:"35px", gap:"0"}}
 				value={text}
 				onChange={handleTextChange}
 			/>
-			<button className="chatbar__action" type="submit">
+			<button className="chatbar__action"  type="submit" style={{height:"41px", fontSize:"20px"}}>
 				{isLoading ? "...sending" : "send"}
 			</button>
 		</form>
