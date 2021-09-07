@@ -1,13 +1,20 @@
+import React, { useState } from "react";
+import { Link, useRouteMatch } from "react-router-dom";
+
 import "./Aside.css";
 
 export default function AsideNav() {
+  const {url} = useRouteMatch()
+  
   return (
-    <div className="Aside-container">
+    <div className="Aside-container" >
       <h1>Avion School</h1>
       <div className="aside-btn-container" >
         <div className="aside-btn">
           <h5>Channels</h5>
-          <button className="fas fa-plus action"  />
+          <Link to={`${url}/new-channel`}><button className="fas fa-plus action" /></Link>
+          
+       
         </div>
       </div>
       <div>

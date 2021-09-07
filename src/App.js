@@ -9,7 +9,7 @@ function App() {
 			<Switch>
 				<Route exact path={"/"} component={LogIn} />
 				<Route path="/signup" component={SignupForm} />
-				<Route excat path={"/client"} component={Client} />
+				<Route path={"/client"} component={Client} />
 			</Switch>
 		</Router>
 	);

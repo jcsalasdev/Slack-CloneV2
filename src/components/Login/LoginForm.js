@@ -47,7 +47,7 @@ export default function LogInForm() {
 			const jsonData = await response.json();
 
 			if (response.status === 200) {
-				history.push("/client");
+				history.push("/client/chats");
 				//save needed access data
 				const userData = {
 					"access-token": response.headers.get("access-token"),
