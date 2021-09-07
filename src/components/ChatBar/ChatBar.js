@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Redirect } from "react-router";
 import { useGetUser } from "../../context/UserProvider";
 const receiverDetails = {
 	id: 2, //only needed receiver data to send message

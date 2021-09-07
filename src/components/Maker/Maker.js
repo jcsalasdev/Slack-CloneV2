@@ -2,7 +2,8 @@ import { useState } from "react";
 import { tempData } from "./users";
 import Fuse from "fuse.js";
 import { useGetUser } from "../../context/UserProvider";
-
+import "./maker.css";
+import { Link, useRouteMatch } from "react-router-dom";
 
 const users = tempData.data;
 /* const loggedInUser = {
@@ -15,28 +16,26 @@ const users = tempData.data;
   id: 31
 }; */
 
-
-
 export default function Maker() {
   //states related to component --> can be merged to custom hook
   const [name, setName] = useState("");
   const [searchName, setSearchName] = useState("");
   const [options, setOptions] = useState(users);
   const [selection, setSelection] = useState([]);
-   const user =   useGetUser()
+  const user = useGetUser();
+  const { url } = useRouteMatch();
 
   //states related to submit --> can be merge with reducer
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const fuse = new Fuse(options, {
-    keys: ["uid"]
+    keys: ["uid"],
   });
-  const loggedInUser = user
-    //current user logged in
-    //get user detail after Login or Signup
-    
- 
+  const loggedInUser = user;
+  //current user logged in
+  //get user detail after Login or Signup
+
   function handleNameChange(e) {
     setName(e.target.value);
   }
@@ -51,12 +50,14 @@ export default function Maker() {
       return;
     }
     //remove in options
-    setOptions(prevOptions => prevOptions.filter(option => option.id !== id));
+    setOptions((prevOptions) =>
+      prevOptions.filter((option) => option.id !== id)
+    );
 
     //add in selection
-    setSelection(prevSelection => {
-      const copy = prevSelection.map(select => ({ ...select }));
-      copy.push({ ...options.find(select => select.id === id) }); //make a copy of found selection
+    setSelection((prevSelection) => {
+      const copy = prevSelection.map((select) => ({ ...select }));
+      copy.push({ ...options.find((select) => select.id === id) }); //make a copy of found selection
       return copy;
     });
   }
@@ -69,13 +70,13 @@ export default function Maker() {
       return;
     }
     //remove in selected
-    setSelection(prevSelection =>
-      prevSelection.filter(select => select.id !== id)
+    setSelection((prevSelection) =>
+      prevSelection.filter((select) => select.id !== id)
     );
     //add in options
-    setOptions(prevOptions => {
-      const copy = prevOptions.map(option => ({ ...option }));
-      copy.push({ ...selection.find(option => option.id === id) });
+    setOptions((prevOptions) => {
+      const copy = prevOptions.map((option) => ({ ...option }));
+      copy.push({ ...selection.find((option) => option.id === id) });
       return copy;
     });
   }
@@ -99,7 +100,7 @@ export default function Maker() {
     try {
       const data = {
         name,
-        user_ids: selection.map(select => select.id)
+        user_ids: selection.map((select) => select.id),
       };
 
       const endPoint = "http://206.189.91.54//api/v1/channels";
@@ -107,9 +108,9 @@ export default function Maker() {
         method: "post",
         headers: {
           "content-type": "application/json",
-          ...loggedInUser //sets user access credentials
+          ...loggedInUser, //sets user access credentials
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       };
 
       setError(null);
@@ -136,56 +137,93 @@ export default function Maker() {
   }
 
   return (
-    <form className="maker" onSubmit={handleSubmit}>
-      <h3>Channel Creator with search</h3>
-      
-      <p>{(isLoading && "..loading") || "---"}</p>
-      <p>{error || "---"}</p>
-      <input
-        className="maker__name"
-        type="text"
-        placeholder="channel name"
-        value={name}
-        onChange={handleNameChange}
-      />
+    <div className="maker_container">
+      <form className="maker" onSubmit={handleSubmit}>
+        <Link to="/client/chats">
+          <div className="close-creator">
+          <i className="fas fa-times"></i>
+          </div>
+        </Link>
 
-      <input
-        className="maker__search"
-        type="text"
-        placeholder="search user"
-        value={searchName}
-        onChange={handleSearchChange}
-      />
+        <h1>Create Channel</h1>
+        <p>
+          {(isLoading && "..loading") || ""} {error || ""}
+        </p>
 
-      <button className="maker__action" type="button" onClick={handleSelectAll}>
-        select all
-      </button>
+        <div>
+          <div>
+            <div className="channel-maker__name">
+              <label>Channel Name</label>
+              <input
+                className="maker__name"
+                type="text"
+                placeholder="type channel name"
+                value={name}
+                onChange={handleNameChange}
+              />
+            </div>
 
-      <button className="maker__action" type="button" onClick={handleReset}>
-        reset
-      </button>
-      
+            <div>
+              <p>selected: {selection.length}</p>
 
-      <button className="maker__action" type="submit" >
-        submit
-      </button>
-      <i className="fas fa-arrow-left"></i>
-      <p>selected: {selection.length}</p>
-      <ul className="maker__selection" onClick={handleSelectionClick}>
-        {selection.map(select => (
-          <li key={select.id} data-id={select.id} className="maker__select">
-            {select.uid}
-          </li>
-        ))}
-      </ul>
-      <ul className="maker__options" onClick={handleOptionsClick}>
-        {fuse.search(searchName).map(({ item: option }) => (
-          <li key={option.id} data-id={option.id} className="maker__option">
-            {option.uid}
-          </li>
-        ))}
-      </ul>
-    </form>
-    
+              <button
+                className="maker__action"
+                type="button"
+                onClick={handleSelectAll}
+              >
+                select all
+              </button>
+
+              <button
+                className="maker__action"
+                type="button"
+                onClick={handleReset}
+              >
+                reset
+              </button>
+            </div>
+
+            <ul className="maker__selection" onClick={handleSelectionClick}>
+              {selection.map((select) => (
+                <li
+                  key={select.id}
+                  data-id={select.id}
+                  className="maker__select"
+                >
+                  <i className="fas fa-user icon"/>{select.uid}
+                </li>
+              ))}
+            </ul>
+            <div className="search">
+              <label className="maker_label">Search Users</label>
+              <input
+                className="maker__search"
+                type="search"
+                placeholder="search here"
+                value={searchName}
+                onChange={handleSearchChange}
+              />
+            </div>
+            <ul className="maker__options" onClick={handleOptionsClick}>
+              {fuse.search(searchName).map(({ item: option }) => (
+                <li
+                  key={option.id}
+                  data-id={option.id}
+                  className="maker__option"
+                >
+                  <i className="fas fa-user icon"/>{option.uid}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="action__submit">
+          <button className="maker__action" type="submit">
+            submit
+          </button>
+          </div>
+         
+        </div>
+      </form>
+    </div>
   );
 }
