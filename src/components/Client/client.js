@@ -1,12 +1,9 @@
 import { Link, useRouteMatch, Route, Switch } from "react-router-dom";
 import { useGetUser } from "../../context/UserProvider";
-
 import AsideNav from "./Aside";
 import Maker from "../Maker/Maker";
 import "./client.css";
 import Chat from "../Chat/Chat";
-
-/* import Users from "../Users/Users"; */
 
 export default function Client() {
   const user = useGetUser();

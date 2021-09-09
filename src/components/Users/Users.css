@@ -1,21 +1,32 @@
+.users-wrapper {
+  margin-top: 0;
+}
 .users__list {
-  padding-top: 0.3rem;
+  padding-top: 0.5rem;
+  font-size: 1rem;
   border: 2px solid grey;
   border-radius: 10px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   height: 12rem;
   overflow-y: scroll;
-  margin: 0;
   padding-inline-start: 20px;
-  color: white;
 }
 .users__list::-webkit-scrollbar {
   overflow-y: hidden;
 }
 .users__list a {
   color: whitesmoke;
+  font-size: 0.9rem;
 }
 .users__list a:hover {
   color: violet;
+}
+
+.iconic {
+  font-size: 1rem;
+  padding-bottom: 0.3rem;
+  margin-bottom: 5px;
+  color: rgb(104, 170, 5);
+  margin-right: 5px;
 }

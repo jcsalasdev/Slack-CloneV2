@@ -40,13 +40,14 @@ export default function Users() {
   }, []);
 
   return (
-    <div className="users">
+    <div className="users-wrapper">
       <p>{error || ""}</p>
       {(!isLoading && (
         <ul className="users__list">
           {users.map(({ id, uid }) => {
             return (
               <Link to={`/client/User/${id}`} key={id}>
+                <i className="fas fa-user iconic"></i>
                 {uid}
               </Link>
             );

@@ -6,7 +6,7 @@ export default function Channels() {
   const user = useGetUser();
 
   //can be batched using useReducer hook
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [channels, setChannels] = useState([]);
   const [error, setError] = useState(null);
   console.log(channels);
@@ -19,7 +19,6 @@ export default function Channels() {
     //Immediately invoked function expressions
     (async () => {
       try {
-        setLoading(true);
         const response = await fetch(endPoint, options);
         const jsonData = await response.json();
 
@@ -47,6 +46,7 @@ export default function Channels() {
         <ul className="channels__list">
           {channels.map(({ name, id }) => (
             <Link to={`/client/Channel/${id}`} key={id}>
+              <i className="fas fa-users iconic"></i>
               {name}
             </Link>
           ))}

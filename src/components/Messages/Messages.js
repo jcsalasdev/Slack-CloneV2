@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetUser } from "../../context/UserProvider";
 import "./Messages.css";
 
-export default function Messages({ flag, receiverId, type }) {
+export default function Messages({ changeFlag, flag, receiverId, type }) {
   const user = useGetUser();
 
   //can be batched using useReducer hook

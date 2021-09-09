@@ -8,9 +8,11 @@ import Users from "../Users/Users";
 export default function AsideNav() {
   const { url } = useRouteMatch();
   const signOutUser = useSetUser();
+
   function handleSignOut() {
     signOutUser({ type: "log out" });
   }
+
   return (
     <div className="Aside-container">
       <Link to="/client">
@@ -29,23 +31,10 @@ export default function AsideNav() {
       <div>
         <div className="aside-btn">
           <h4>Direct Messages</h4>
-          <button className="fas fa-plus action" />
         </div>
         <Users />
       </div>
       <button onClick={handleSignOut}>Sign Out</button>
     </div>
   );
-}
-
-{
-  /* <ul className="hide">
-{channels.map(({ name, id }) => {
-  return (
-    <Link to={`/client/chats/${id}/channel`} key={id}>
-      {name}
-    </Link>
-  );
-})}
-</ul> */
 }

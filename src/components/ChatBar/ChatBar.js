@@ -63,7 +63,6 @@ export default function ChatBar({ changeFlag, receiverId, type }) {
       const jsonData = await response.json();
       console.log(response.status);
       if (response.status === 200) {
-        alert("sent");
         console.log(jsonData);
         setLoading(false);
         changeFlag();
