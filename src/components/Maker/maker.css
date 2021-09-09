@@ -22,7 +22,7 @@
   flex-direction: column;
 }
 .close-creator {
-    height: 3rem;
+  height: 3rem;
   font-size: 1.5rem;
   width: 38vw;
   display: flex;
@@ -34,7 +34,7 @@
 .close-creator:hover,
 .close-creator:active {
   color: black;
-  font-size:2rem;
+  font-size: 2rem;
 }
 .maker__name {
   width: 40%;
@@ -53,7 +53,6 @@
 .maker__select {
   padding-bottom: 0.5rem;
   border-bottom: 1px dashed rgba(128, 128, 128, 0.746);
-
 }
 
 .maker__options::-webkit-scrollbar,
@@ -103,8 +102,8 @@
   font-size: 1.4rem;
   width: 5.5rem;
 }
-.maker__action[type="submit"]:hover{
-    border: 1px solid black;
+.maker__action[type="submit"]:hover {
+  border: 1px solid black;
 }
 
 .action__submit {

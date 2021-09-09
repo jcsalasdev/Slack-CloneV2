@@ -1,4 +1,10 @@
-input.chatbar__field{
-width: 80px;
+.chatbar__field {
+  margin-left: 1rem;
+  margin-top: 0;
+}
 
+.chatbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -141,7 +141,7 @@ export default function Maker() {
       <form className="maker" onSubmit={handleSubmit}>
         <Link to="/client/chats">
           <div className="close-creator">
-          <i className="fas fa-times"></i>
+            <i className="fas fa-times"></i>
           </div>
         </Link>
 
@@ -190,7 +190,8 @@ export default function Maker() {
                   data-id={select.id}
                   className="maker__select"
                 >
-                  <i className="fas fa-user icon"/>{select.uid}
+                  <i className="fas fa-user icon" />
+                  {select.uid}
                 </li>
               ))}
             </ul>
@@ -211,17 +212,17 @@ export default function Maker() {
                   data-id={option.id}
                   className="maker__option"
                 >
-                  <i className="fas fa-user icon"/>{option.uid}
+                  <i className="fas fa-user icon" />
+                  {option.uid}
                 </li>
               ))}
             </ul>
           </div>
           <div className="action__submit">
-          <button className="maker__action" type="submit">
-            submit
-          </button>
+            <button className="maker__action" type="submit">
+              submit
+            </button>
           </div>
-         
         </div>
       </form>
     </div>

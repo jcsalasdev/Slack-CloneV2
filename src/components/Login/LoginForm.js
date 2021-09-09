@@ -47,7 +47,6 @@ export default function LogInForm() {
       const jsonData = await response.json();
 
       if (response.status === 200) {
-        history.push("/client/chats");
         //save needed access data
         const userData = {
           "access-token": response.headers.get("access-token"),
@@ -59,6 +58,7 @@ export default function LogInForm() {
         setUser({ type: "save", payload: userData });
         console.log(userData); //may save userData to context to access globally
         setLoading(false);
+        history.push("/client/chats");
       } else {
         //throw custom error that will go to catch block
         throw { custom: jsonData?.errors?.[0] || "failed to login" };
@@ -79,17 +79,18 @@ export default function LogInForm() {
       <div className="login-container">
         <label className="login__label">Email</label>
         <input
+          placeholder="enter email"
+          required
           onChange={handleEmailChange}
           className="login__input"
           type="email"
-          placeholder="type your email here"
         />
         <label className="login__label">Password</label>
         <input
           onChange={handlePwChange}
           className="login__input"
           type="password"
-          placeholder="type your password here"
+          placeholder="enter password"
           title="Must contain at least 8 or more characters"
           required
         />
@@ -99,6 +100,7 @@ export default function LogInForm() {
         <button type="submit" className="login__action btn">
           Sign In <i className="fas fa-sign-in-alt"></i>
         </button>
+
         <Link to="/signup">
           <button type="button" className="signup btn">
             Sign Up <i className="fab fa-slack"></i>

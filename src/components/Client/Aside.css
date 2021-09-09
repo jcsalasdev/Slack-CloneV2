@@ -1,35 +1,30 @@
-.Aside-container{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 15vw;
-    padding: 25px;
-    background-color: purple;
-    color:whitesmoke
-
-    
+.Aside-container {
+  display: flex;
+  flex-direction: column;
+  height: 94.9vh;
+  width: 15vw;
+  padding: 25px;
+  background-color: purple;
+  color: whitesmoke;
 }
-.aside-btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-
-    
+.aside-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
-.aside-btn-container{
-    display: flex;
-    flex-direction: column;
-}
-.action{
-    height: 30px;
-    width: 30px;
-    background-color: transparent;
-    border: none;
-    color: whitesmoke;
-    background-color: rgba(128, 128, 128, 0.644);
-    margin-left: 5px;
-    padding: 0;
 
-   
+.aside-btn-container {
+  display: flex;
+  flex-direction: column;
+}
+.action {
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+  background-color: rgba(128, 128, 128, 0.644);
+  margin-left: 5px;
+  padding: 0;
 }

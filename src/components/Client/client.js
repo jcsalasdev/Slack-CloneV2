@@ -1,10 +1,10 @@
 import { Link, useRouteMatch, Route, Switch } from "react-router-dom";
 import { useGetUser } from "../../context/UserProvider";
-import ChatBar from "../ChatBar/ChatBar";
-import Messages from "../Messages/Messages";
+
 import AsideNav from "./Aside";
 import Maker from "../Maker/Maker";
 import "./client.css";
+import Chat from "../Chat/Chat";
 /* import Users from "../Users/Users"; */
 
 export default function Client() {
@@ -24,14 +24,8 @@ export default function Client() {
   return (
     <div className="client-container">
       <AsideNav />
-
-      <Switch >
-        <Route exact path={`${url}/chats`}>
-          <div className="chat-container">
-            <Messages />
-            <ChatBar />
-          </div>
-        </Route>
+      <Switch>
+        <Route path={`${url}/chats/:id/:type`} component={Chat} />
         <Route path={`${url}/new-channel`} component={Maker} />
       </Switch>
     </div>
