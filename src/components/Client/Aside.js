@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
+import Channels from "./ChannelList";
 
 import "./Aside.css";
 
@@ -11,8 +12,11 @@ export default function AsideNav() {
       <h1>Avion School</h1>
       <div className="aside-btn-container" >
         <div className="aside-btn">
+        <Channels/>
           <h5>Channels</h5>
           <Link to={`${url}/new-channel`}><button className="fas fa-plus action" /></Link>
+         
+
           
        
         </div>

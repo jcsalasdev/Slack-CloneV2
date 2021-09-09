@@ -3,8 +3,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  gap: 0;
 }
-
+.header{
+  margin:0;
+}
+.error{
+  margin:0;
+  font-size: .8rem;
+  color: red;
+}
 .maker {
   margin-top: 1.5rem;
   display: flex;
@@ -15,6 +23,7 @@
   width: 40vw;
   height: 92vh;
   background-color: white;
+
 }
 
 .channel-maker__name {
@@ -62,11 +71,11 @@
 }
 
 .maker__selection {
-  height: 8rem;
+  height: 5rem;
 }
 
 .maker__options {
-  height: 15rem;
+  height: 6rem;
 }
 .maker__name {
   margin-top: 0.3rem;

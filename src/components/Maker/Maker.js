@@ -145,8 +145,8 @@ export default function Maker() {
           </div>
         </Link>
 
-        <h1>Create Channel</h1>
-        <p>
+        <h1 className="header">Create Channel</h1>
+        <p className="error">
           {(isLoading && "..loading") || ""} {error || ""}
         </p>
 
