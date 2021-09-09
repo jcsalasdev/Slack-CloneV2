@@ -3,7 +3,7 @@ import { tempData } from "./users";
 import Fuse from "fuse.js";
 import { useGetUser } from "../../context/UserProvider";
 import "./maker.css";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const users = tempData.data;
 /* const loggedInUser = {
@@ -23,7 +23,6 @@ export default function Maker() {
   const [options, setOptions] = useState(users);
   const [selection, setSelection] = useState([]);
   const user = useGetUser();
-  const { url } = useRouteMatch();
 
   //states related to submit --> can be merge with reducer
   const [isLoading, setLoading] = useState(false);
@@ -79,6 +78,9 @@ export default function Maker() {
       copy.push({ ...selection.find((option) => option.id === id) });
       return copy;
     });
+    setName("");
+    setSearchName("");
+    setSelection([]);
   }
 
   function handleSelectAll() {
@@ -145,8 +147,8 @@ export default function Maker() {
           </div>
         </Link>
 
-        <h1>Create Channel</h1>
-        <p>
+        <h1 className="header">Create Channel</h1>
+        <p className="error">
           {(isLoading && "..loading") || ""} {error || ""}
         </p>
 

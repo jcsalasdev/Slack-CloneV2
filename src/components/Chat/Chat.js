@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Chat() {
   const params = useParams();
-  console.log(params);
+
   const [flag, setFlag] = useState("initial");
   function generateString() {
     return (Math.random() + 1).toString(36).substring(7);
@@ -17,7 +17,7 @@ export default function Chat() {
 
   return (
     <div className="chat-container">
-      <Messages receiverId={params.id} flag={flag} />
+      <Messages receiverId={params.id} type={params.type} flag={flag} />
       <ChatBar
         receiverId={params.id}
         changeFlag={changeFlag}

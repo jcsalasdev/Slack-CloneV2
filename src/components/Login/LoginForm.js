@@ -58,7 +58,7 @@ export default function LogInForm() {
         setUser({ type: "save", payload: userData });
         console.log(userData); //may save userData to context to access globally
         setLoading(false);
-        history.push("/client/chats");
+        history.push("/client");
       } else {
         //throw custom error that will go to catch block
         throw { custom: jsonData?.errors?.[0] || "failed to login" };

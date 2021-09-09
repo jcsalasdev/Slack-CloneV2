@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useGetUser } from "../../context/UserProvider";
 import "./ChatBar.css";
-const receiverDetails = {
-  id: 2, //only needed receiver data to send message
-};
+
 //HARD CODED PARTIES
 // const receiverDetails = {
 // 	"access-token": "Ebezl71fGd1HMerZV2miHQ",
@@ -32,7 +30,7 @@ export default function ChatBar({ changeFlag, receiverId, type }) {
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const senderDetails = user;
-  console.log(type);
+
   function handleTextChange(e) {
     setText(e.target.value);
   }
@@ -63,8 +61,10 @@ export default function ChatBar({ changeFlag, receiverId, type }) {
       setLoading(true);
       const response = await fetch(endPoint, options);
       const jsonData = await response.json();
-
+      console.log(response.status);
       if (response.status === 200) {
+        alert("sent");
+        console.log(jsonData);
         setLoading(false);
         changeFlag();
       } else {

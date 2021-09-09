@@ -5,6 +5,7 @@ import AsideNav from "./Aside";
 import Maker from "../Maker/Maker";
 import "./client.css";
 import Chat from "../Chat/Chat";
+
 /* import Users from "../Users/Users"; */
 
 export default function Client() {
@@ -24,8 +25,9 @@ export default function Client() {
   return (
     <div className="client-container">
       <AsideNav />
+
       <Switch>
-        <Route path={`${url}/chats/:id/:type`} component={Chat} />
+        <Route path={`${url}/:type/:id/`} component={Chat} />
         <Route path={`${url}/new-channel`} component={Maker} />
       </Switch>
     </div>

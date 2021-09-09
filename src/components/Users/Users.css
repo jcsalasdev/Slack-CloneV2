@@ -1,0 +1,21 @@
+.users__list {
+  padding-top: 0.3rem;
+  border: 2px solid grey;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  height: 12rem;
+  overflow-y: scroll;
+  margin: 0;
+  padding-inline-start: 20px;
+  color: white;
+}
+.users__list::-webkit-scrollbar {
+  overflow-y: hidden;
+}
+.users__list a {
+  color: whitesmoke;
+}
+.users__list a:hover {
+  color: violet;
+}

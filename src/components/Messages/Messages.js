@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import { useGetUser } from "../../context/UserProvider";
-import "./Messages.css"; /* 
-import Moment from "react-moment"; */
-const receiver = {
-  id: 2,
-};
+import "./Messages.css";
 
-export default function Messages({ flag, receiverId }) {
-  console.log("Messages", flag, receiverId);
+export default function Messages({ flag, receiverId, type }) {
   const user = useGetUser();
 
   //can be batched using useReducer hook
@@ -16,7 +11,7 @@ export default function Messages({ flag, receiverId }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const endPoint = `http://206.189.91.54//api/v1/messages?receiver_class=User&receiver_id=${receiverId}&sender_id=${user?.id}`;
+    const endPoint = `http://206.189.91.54//api/v1/messages?receiver_class=${type}&receiver_id=${receiverId}&sender_id=${user?.id}`;
     const options = {
       headers: user,
     };
@@ -26,9 +21,8 @@ export default function Messages({ flag, receiverId }) {
       try {
         const response = await fetch(endPoint, options);
         const jsonData = await response.json();
-
         if (response.status === 200) {
-          // console.log(jsonData);
+          console.log(jsonData);
           setLoading(false);
           setMessages(jsonData.data);
         } else {
@@ -48,8 +42,9 @@ export default function Messages({ flag, receiverId }) {
   return (
     <div className="messages">
       {(!isLoading && (
-        <ul className="messages__list" style={{ height: "515px" }}>
-          {messages.map((message) => {
+        <ul className="messages__list" style={{ height: "90vh" }}>
+          {messages?.map((message) => {
+            console.log(message);
             return (
               <div className="user_icon" key={message.id}>
                 <i className="fas fa-user icon"></i>
