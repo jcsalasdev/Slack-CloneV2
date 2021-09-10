@@ -42,14 +42,30 @@ export default function Messages({ flag, receiverId, type }) {
   return (
     <div className="messages">
       {(!isLoading && (
-        <ul className="messages__list" style={{ height: "90vh" }}>
+        <ul className="messages__list" style={{ height: "88vh", }} >
           {messages?.map((message) => {
             console.log(message);
             return (
               <div className="user_icon" key={message.id}>
-                <i className="fas fa-user icon"></i>
-                <li key={message.id} className="messages__message">
-                  <div className="msg_container">
+                <i className="fas fa-user icon" style={{
+                    color:
+                      message.sender.id === message.receiver.owner_id
+                        ? "green"
+                        : "darkcyan",
+                  }}
+></i>
+                <li key={message.id} className="messages__message" >
+                  <div className="msg_container" style={{
+                    backgroundColor:
+                      message.sender.id === message.receiver.owner_id
+                        ? "green"
+                        : "darkcyan",
+                  }}>
+                     <p className="msg-uid" style={{ fontSize: "10px" }}>
+                      {message.sender.id === user.id
+                        ? `${message.sender.uid}`
+                        : "@channel"}
+                    </p>
                     <p className="msg" style={{ margin: "0" }}>
                       {message.body}
                     </p>

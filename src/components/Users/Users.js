@@ -51,7 +51,7 @@ export default function Users() {
     <div className="users-wrapper">
       <p>{error || ""}</p>
       {(!isLoading && (
-        <ul className="users__list">
+        <ul className="users__list" style={{ overflowX: "hidden" }}>
           {users.map(({ id, uid }) => {
             return (
               <Link to={`/client/User/${id}`} key={id}>

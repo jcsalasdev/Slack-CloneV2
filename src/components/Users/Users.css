@@ -4,8 +4,8 @@
 .users__list {
   padding-top: 0.5rem;
   font-size: 1rem;
-  border: 2px solid grey;
-  border-radius: 10px;
+  border-bottom: .5px solid whitesmoke;
+
   display: flex;
   flex-direction: column;
   height: 12rem;
