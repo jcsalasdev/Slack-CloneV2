@@ -105,7 +105,7 @@ export default function ChatBar({ changeFlag, receiverId, type }) {
             fontSize: "24px",
           }}
         >
-          {isLoading ? "...sending" : "send"}
+          <i className="fas fa-paper-plane" />
         </button>
       </div>
     </form>
