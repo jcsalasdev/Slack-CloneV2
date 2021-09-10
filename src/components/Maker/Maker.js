@@ -1,22 +1,16 @@
 import { useState } from "react";
-import { tempData } from "./users";
+// import { tempData } from "./users";
 import Fuse from "fuse.js";
 import { useGetUser } from "../../context/UserProvider";
 import "./maker.css";
 import { Link } from "react-router-dom";
+import { useGetUsers } from "../../context/usersLiProvider";
 
-const users = tempData.data;
-/* const loggedInUser = {
-  //current user logged in
-  //get user detail after Login or Signup
-  "access-token": "g3c29Tkg2MS23vDdiPiDeQ",
-  client: "tdluJrvdfrqEmGV_nCLpvQ",
-  expiry: "1626966033",
-  uid: "m1@m.com",
-  id: 31
-}; */
+// const users = tempData.data;
 
 export default function Maker() {
+  const users = useGetUsers();
+
   //states related to component --> can be merged to custom hook
   const [name, setName] = useState("");
   const [searchName, setSearchName] = useState("");

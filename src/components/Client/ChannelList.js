@@ -44,7 +44,7 @@ export default function Channels() {
     <div className="channels">
       {(!isLoading && (
         <ul className="channels__list">
-          {channels.map(({ name, id }) => (
+          {channels?.map(({ name, id }) => (
             <Link to={`/client/Channel/${id}`} key={id}>
               <i className="fas fa-users iconic"></i>
               {name}

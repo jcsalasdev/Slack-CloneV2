@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetUser } from "../../context/UserProvider";
+import { useSetUsers } from "../../context/usersLiProvider";
 import "./Users.css";
 
 export default function Users() {
   //can be batched using useReducer hook
   const user = useGetUser();
+  const usersLi = useSetUsers();
   const [isLoading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
@@ -23,8 +25,14 @@ export default function Users() {
         const jsonData = await response.json();
 
         if (response.status === 200) {
-          // console.log(jsonData);
           setUsers(jsonData.data);
+          const usersData = jsonData.data;
+          console.log("userlist", jsonData.data);
+          usersLi({
+            type: "get users",
+            payload: usersData,
+          });
+
           setLoading(false);
         } else {
           //catch will get this error
