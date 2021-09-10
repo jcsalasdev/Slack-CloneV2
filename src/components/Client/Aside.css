@@ -72,8 +72,18 @@
   color: whitesmoke;
 }
 .channels__list a:hover {
-  color: violet;
+  color: whitesmoke;
+  background-color: rgb(70, 138, 184);
+  border-radius: 4px;
+  padding-left: 5px;
 }
+
+
+
+
+
+
+
 
 .channels__list::-webkit-scrollbar {
   overflow-y: hidden;
@@ -101,8 +111,8 @@
   }
   .ico{
       margin-right: 5px;
-      font-size: 30px;
-    background: -webkit-linear-gradient(90deg,red,lightblue,lightgreen,yellow);
+      font-size: 33px;
+    background: -webkit-linear-gradient(85deg,#ECB22E,#E01E5A,#36C5F0,#2EB67D);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   }
