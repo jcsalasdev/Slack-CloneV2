@@ -29,7 +29,6 @@ export function reducerUsers(state, action) {
   switch (action.type) {
     case "get users": {
       const newUsers = action.payload;
-      console.log("action", action);
       return newUsers;
     }
   }

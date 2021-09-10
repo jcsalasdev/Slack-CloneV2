@@ -55,8 +55,7 @@ export default function LogInForm() {
           id: jsonData.data.id,
           client: response.headers.get("client"),
         };
-        setUser({ type: "save", payload: userData });
-        console.log(userData); //may save userData to context to access globally
+        setUser({ type: "save", payload: userData }); //may save userData to context to access globally
         setLoading(false);
         history.push("/client");
       } else {

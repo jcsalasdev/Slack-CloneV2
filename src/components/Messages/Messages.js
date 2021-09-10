@@ -22,7 +22,6 @@ export default function Messages({ flag, receiverId, type }) {
         const response = await fetch(endPoint, options);
         const jsonData = await response.json();
         if (response.status === 200) {
-          console.log(jsonData);
           setLoading(false);
           setMessages(jsonData.data);
         } else {
@@ -47,9 +46,31 @@ export default function Messages({ flag, receiverId, type }) {
             console.log(message);
             return (
               <div className="user_icon" key={message.id}>
-                <i className="fas fa-user icon"></i>
+                <i
+                  className="fas fa-user icon"
+                  style={{
+                    color:
+                      message.sender.id === message.receiver.owner_id
+                        ? "green"
+                        : "darkcyan",
+                  }}
+                ></i>
                 <li key={message.id} className="messages__message">
-                  <div className="msg_container">
+                  <div
+                    className="msg_container"
+                    style={{
+                      color: "white",
+                      backgroundColor:
+                        message.sender.id === message.receiver.owner_id
+                          ? "green"
+                          : "darkcyan",
+                    }}
+                  >
+                    <p className="msg-uid" style={{ fontSize: "10px" }}>
+                      {message.sender.id === user.id
+                        ? `${message.sender.uid}`
+                        : "@channel"}
+                    </p>
                     <p className="msg" style={{ margin: "0" }}>
                       {message.body}
                     </p>

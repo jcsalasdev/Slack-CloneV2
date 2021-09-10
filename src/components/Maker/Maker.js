@@ -116,7 +116,6 @@ export default function Maker() {
 
       if (response.status === 200 && !jsonData.errors) {
         setLoading(false);
-        console.log(jsonData);
         alert("create channel success!");
       } else {
         //throw custom error that will go to catch block

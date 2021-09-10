@@ -9,7 +9,7 @@ export default function Channels() {
   const [isLoading, setLoading] = useState(true);
   const [channels, setChannels] = useState([]);
   const [error, setError] = useState(null);
-  console.log(channels);
+
   useEffect(() => {
     const endPoint = `http://206.189.91.54//api/v1/channels`;
     const options = {

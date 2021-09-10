@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export default function Chat() {
   const params = useParams();
-  console.log(params);
   const [flag, setFlag] = useState("initial");
   function generateString() {
     return (Math.random() + 1).toString(36).substring(7);
