@@ -59,7 +59,6 @@ export default function Messages({ flag, receiverId, type }) {
                   <div
                     className="msg_container"
                     style={{
-                      color: "white",
                       backgroundColor:
                         message.sender.id === message.receiver.owner_id
                           ? "green"

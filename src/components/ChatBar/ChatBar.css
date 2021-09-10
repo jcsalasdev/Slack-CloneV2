@@ -1,10 +1,7 @@
-.chatbar__field {
-  margin-left: 1rem;
-  margin-top: 0;
+.chatbar__action:hover {
+  border: 2px solid rgba(128, 128, 128, 0.548);
 }
 
-.chatbar-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.chatbar__action i:hover {
+  color: purple;
 }

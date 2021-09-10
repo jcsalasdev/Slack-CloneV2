@@ -83,15 +83,15 @@ export default function ChatBar({ changeFlag, receiverId, type }) {
     <form
       className="chatbar"
       onSubmit={handleSubmit}
-      style={{ borderTop: "2px solid black" }}
+      style={{  margin:"0 10px 40px 5px" }}
     >
-      <p>{error || ""}</p>
-      <div>
+      <p className="err">{error || ""}</p>
+      
         <input
           className="chatbar-container"
           type="text"
           className="chatbar__field"
-          style={{ width: "90%", marginRight: "5px", height: "30px" }}
+          style={{ width: "85%", marginLeft: "20px", height: "30px", marginRight:"10px", marginBottom:"10px" }}
           value={text}
           onChange={handleTextChange}
         />
@@ -99,14 +99,18 @@ export default function ChatBar({ changeFlag, receiverId, type }) {
           className="chatbar__action"
           type="submit"
           style={{
-            height: "2.4rem",
-            width: "6rem",
-            fontSize: "24px",
+            backgroundColor:"#148567",
+            color:"whitesmoke",
+            height: "2.2rem",
+            width: "5rem",
+            fontSize: "15px",
+            padding:"0",
+            marginLeft:"5px"
           }}
         >
           <i className="fas fa-paper-plane" />
         </button>
-      </div>
+     
     </form>
   );
 }

@@ -16,12 +16,13 @@ export default function AsideNav() {
   return (
     <div className="Aside-container">
       <Link to="/client">
-        <h1 className="home-C">Avion School</h1>
+      
+        <h2 className="home-C"><i className="fab fa-slack ico"></i>Avion School</h2>
       </Link>
 
-      <div className="aside-btn-container">
-        <div className="aside-btn">
-          <h4>Channels</h4>
+      <div className="aside-btn-container" >
+        <div className="aside-btn" style={{borderBottom:"1px solid white", borderTop:"1px solid white", width:"100%", padding:"5px"}}>
+          <h4 >Channels</h4>
           <Link to={`${url}/new-channel`}>
             <button className="fas fa-plus action" />
           </Link>
@@ -29,12 +30,12 @@ export default function AsideNav() {
         <Channels />
       </div>
       <div>
-        <div className="aside-btn">
-          <h4>Direct Messages</h4>
+        <div className="aside-btn" style={{borderBottom:"1px solid white", borderTop:"1px solid white", width:"100%", padding:"5px"}}>
+          <h4 >Direct Messages</h4>
         </div>
         <Users />
       </div>
-      <button onClick={handleSignOut}>Sign Out</button>
+      <button className="sub-button" onClick={handleSignOut}>Sign Out</button>
     </div>
   );
 }

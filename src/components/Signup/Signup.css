@@ -44,3 +44,10 @@ a:hover,
 a:active {
 	color: white;
 }
+
+.signup__status{
+	color:whitesmoke;
+}
+.signup__error{
+	color:rgb(241, 115, 115)
+}
