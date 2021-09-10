@@ -99,3 +99,10 @@
     display: inline-block;
     font-size: 16px;
   }
+  .ico{
+      margin-right: 5px;
+      font-size: 30px;
+    background: -webkit-linear-gradient(90deg,red,lightblue,lightgreen,yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }

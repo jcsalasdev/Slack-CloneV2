@@ -16,7 +16,8 @@ export default function AsideNav() {
   return (
     <div className="Aside-container">
       <Link to="/client">
-        <h2 className="home-C">Avion School</h2>
+      
+        <h2 className="home-C"><i className="fab fa-slack ico"></i>Avion School</h2>
       </Link>
 
       <div className="aside-btn-container" >
