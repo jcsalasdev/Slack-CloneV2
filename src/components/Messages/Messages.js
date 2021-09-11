@@ -51,9 +51,7 @@ export default function Messages({ flag, receiverId, type }) {
                   className="fas fa-user icon"
                   style={{
                     color:
-                      message.sender.id === message.receiver.owner_id
-                        ? "green"
-                        : "darkcyan",
+                      message.sender.uid !== user.uid ? "green" : "darkcyan",
                   }}
                 ></i>
                 <li key={message.id} className="messages__message">
