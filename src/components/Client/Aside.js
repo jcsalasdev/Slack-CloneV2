@@ -17,7 +17,7 @@ export default function AsideNav() {
     <div className="Aside-container">
       <Link to="/client">
         <h1 className="home-C">
-          <i class="fab fa-slack ico"></i>Avion School
+          <i className="fab fa-slack ico"></i>Avion School
         </h1>
         {/* click return to client or rerender when selecting new convo */}
       </Link>

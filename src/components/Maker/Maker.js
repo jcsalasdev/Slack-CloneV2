@@ -89,7 +89,7 @@ export default function Maker() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!name.length <= 0 || selection.length <= 0) {
+    if (name.length <= 0 || selection.length <= 0) {
       return;
     }
 
@@ -129,6 +129,10 @@ export default function Maker() {
       setError(err?.custom || "something wen't wrong");
       setLoading(false);
     }
+    setName("");
+    setSearchName("");
+    setSelection([]);
+    setOptions(users);
   }
 
   return (
