@@ -61,9 +61,7 @@ export default function Messages({ flag, receiverId, type }) {
                     className="msg_container"
                     style={{
                       backgroundColor:
-                        message.sender.id === message.receiver.owner_id
-                          ? "green"
-                          : "darkcyan",
+                        message.sender.uid !== user.uid ? "green" : "darkcyan",
                     }}
                   >
                     <p className="msg-uid" style={{ fontSize: "10px" }}>
