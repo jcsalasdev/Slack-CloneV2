@@ -42,6 +42,7 @@ export default function Channels() {
 
   return (
     <div className="channels">
+      <p> {error || ""}</p>
       {(!isLoading && (
         <ul className="channels__list">
           {channels?.map(({ name, id }) => (

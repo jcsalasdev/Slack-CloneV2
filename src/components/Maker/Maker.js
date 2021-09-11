@@ -155,7 +155,8 @@ export default function Maker() {
                 placeholder="type channel name"
                 value={name}
                 onChange={handleNameChange}
-              required/>
+                required
+              />
             </div>
 
             <div>

@@ -24,6 +24,7 @@ export default function Messages({ flag, receiverId, type }) {
         if (response.status === 200) {
           setLoading(false);
           setMessages(jsonData.data);
+          console.log("hahhaha", jsonData.data);
         } else {
           setLoading(false);
           //catch will get this error
@@ -66,9 +67,7 @@ export default function Messages({ flag, receiverId, type }) {
                     }}
                   >
                     <p className="msg-uid" style={{ fontSize: "10px" }}>
-                      {message.sender.id === user.id
-                        ? `${message.sender.uid}`
-                        : "@channel"}
+                      {message.sender.uid}
                     </p>
                     <p className="msg" style={{ margin: "0" }}>
                       {message.body}
