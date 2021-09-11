@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useGetUser } from "../../context/UserProvider";
 import "./Messages.css";
 
@@ -41,8 +42,21 @@ export default function Messages({ flag, receiverId, type }) {
 
   return (
     <div className="messages">
+      <Link to="/client">
+        <h1
+          className="close-chat"
+          style={{
+            textAlign: "right",
+            paddingRight: ".7rem",
+            margin: "0",
+          }}
+        >
+          X
+        </h1>
+        {/* click return to client or rerender when selecting new convo */}
+      </Link>
       {(!isLoading && (
-        <ul className="messages__list" style={{ height: "90vh" }}>
+        <ul className="messages__list" style={{ height: "85vh" }}>
           {messages?.map((message) => {
             console.log(message);
             return (
