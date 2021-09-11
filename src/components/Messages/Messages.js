@@ -38,7 +38,7 @@ export default function Messages({ flag, receiverId, type }) {
         setLoading(false);
       }
     })(); //invocation here
-  }, [flag]);
+  }, [flag, receiverId]);
 
   return (
     <div className="messages">

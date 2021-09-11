@@ -4,9 +4,19 @@ import AsideNav from "./Aside";
 import Maker from "../Maker/Maker";
 import "./client.css";
 import Chat from "../Chat/Chat";
+import { useState } from "react";
 
 export default function Client() {
   const user = useGetUser();
+  const [flag, setFlag] = useState("initial");
+  function generateString() {
+    return (Math.random() + 1).toString(36).substring(7);
+  }
+
+  function changeFlag() {
+    setFlag(generateString());
+  }
+
   const { url } = useRouteMatch();
 
   if (!user) {
@@ -21,11 +31,13 @@ export default function Client() {
   }
   return (
     <div className="client-container">
-      <AsideNav />
+      <AsideNav flag={flag} />
 
       <Switch>
         <Route path={`${url}/:type/:id/`} component={Chat} />
-        <Route path={`${url}/new-channel`} component={Maker} />
+        <Route path={`${url}/new-channel`}>
+          <Maker setFlag={setFlag} />
+        </Route>
       </Switch>
     </div>
   );

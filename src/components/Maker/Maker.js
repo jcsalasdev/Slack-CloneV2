@@ -8,7 +8,7 @@ import { useGetUsers } from "../../context/usersLiProvider";
 
 // const users = tempData.data;
 
-export default function Maker() {
+export default function Maker(changeFlag) {
   const users = useGetUsers();
 
   //states related to component --> can be merged to custom hook
@@ -113,6 +113,7 @@ export default function Maker() {
 
       if (response.status === 200 && !jsonData.errors) {
         alert("create channel success!");
+        changeFlag();
         setLoading(false);
       } else {
         //throw custom error that will go to catch block
