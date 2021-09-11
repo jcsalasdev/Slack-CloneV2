@@ -89,7 +89,7 @@ export default function Maker() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!name || selection.length <= 0) {
+    if (!name.length <= 0 || selection.length <= 0) {
       return;
     }
 
@@ -115,12 +115,12 @@ export default function Maker() {
       const jsonData = await response.json();
 
       if (response.status === 200 && !jsonData.errors) {
-        setLoading(false);
         alert("create channel success!");
+        setLoading(false);
       } else {
         //throw custom error that will go to catch block
         setLoading(false);
-        throw { custom: jsonData?.errors?.[0] || "failed to login" };
+        throw { custom: jsonData?.errors?.[0] || "failed to submit" };
       }
     } catch (err) {
       console.log(err);
@@ -141,8 +141,9 @@ export default function Maker() {
         </Link>
 
         <h1 className="header">Create Channel</h1>
-        <p className="error">
-          {(isLoading && "..loading") || ""} {error || ""}
+        <p className="login__status">
+          {isLoading ? "..loading" : ""}
+          {error || ""}
         </p>
 
         <div>

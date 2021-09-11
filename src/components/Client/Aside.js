@@ -19,6 +19,7 @@ export default function AsideNav() {
         <h1 className="home-C">
           <i class="fab fa-slack ico"></i>Avion School
         </h1>
+        {/* click return to client or remove chat componet */}
       </Link>
 
       <div className="aside-btn-container">
