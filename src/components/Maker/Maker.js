@@ -72,9 +72,6 @@ export default function Maker() {
       copy.push({ ...selection.find((option) => option.id === id) });
       return copy;
     });
-    setName("");
-    setSearchName("");
-    setSelection([]);
   }
 
   function handleSelectAll() {
@@ -129,10 +126,6 @@ export default function Maker() {
       setError(err?.custom || "something wen't wrong");
       setLoading(false);
     }
-    setName("");
-    setSearchName("");
-    setSelection([]);
-    setOptions(users);
   }
 
   return (
@@ -187,6 +180,7 @@ export default function Maker() {
             <ul className="maker__selection" onClick={handleSelectionClick}>
               {selection.map((select) => (
                 <li
+                  style={{ cursor: "pointer" }}
                   key={select.id}
                   data-id={select.id}
                   className="maker__select"
@@ -209,6 +203,7 @@ export default function Maker() {
             <ul className="maker__options" onClick={handleOptionsClick}>
               {fuse.search(searchName).map(({ item: option }) => (
                 <li
+                  style={{ cursor: "pointer" }}
                   key={option.id}
                   data-id={option.id}
                   className="maker__option"

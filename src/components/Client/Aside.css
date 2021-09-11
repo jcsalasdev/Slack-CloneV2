@@ -75,6 +75,11 @@
   padding-left: 5px;
 }
 
+.channels__list a:focus {
+  background-color: rgb(70, 138, 184);
+  padding-left: 5px;
+}
+
 .channels__list::-webkit-scrollbar {
   overflow-y: hidden;
 }

@@ -43,7 +43,7 @@ export default function Messages({ flag, receiverId, type }) {
   return (
     <div className="messages">
       <Link to="/client">
-        <h1
+        <h2
           className="close-chat"
           style={{
             textAlign: "right",
@@ -52,7 +52,7 @@ export default function Messages({ flag, receiverId, type }) {
           }}
         >
           X
-        </h1>
+        </h2>
         {/* click return to client or rerender when selecting new convo */}
       </Link>
       {(!isLoading && (
