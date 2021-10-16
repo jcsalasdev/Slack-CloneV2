@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Slack-CloneV2/static/css/main.3f3f8516.chunk.css",
+    "main.css": "/Slack-CloneV2/static/css/main.05ac5745.chunk.css",
     "main.js": "/Slack-CloneV2/static/js/main.322caa29.chunk.js",
     "main.js.map": "/Slack-CloneV2/static/js/main.322caa29.chunk.js.map",
     "runtime-main.js": "/Slack-CloneV2/static/js/runtime-main.6353a720.js",
@@ -8,7 +8,7 @@
     "static/js/2.e75a3327.chunk.js": "/Slack-CloneV2/static/js/2.e75a3327.chunk.js",
     "static/js/2.e75a3327.chunk.js.map": "/Slack-CloneV2/static/js/2.e75a3327.chunk.js.map",
     "index.html": "/Slack-CloneV2/index.html",
-    "static/css/main.3f3f8516.chunk.css.map": "/Slack-CloneV2/static/css/main.3f3f8516.chunk.css.map",
+    "static/css/main.05ac5745.chunk.css.map": "/Slack-CloneV2/static/css/main.05ac5745.chunk.css.map",
     "static/js/2.e75a3327.chunk.js.LICENSE.txt": "/Slack-CloneV2/static/js/2.e75a3327.chunk.js.LICENSE.txt",
     "static/media/Slogo.d3a08cd8.png": "/Slack-CloneV2/static/media/Slogo.d3a08cd8.png",
     "static/media/MyMoment.css": "/Slack-CloneV2/static/media/pinpng.com-slack-logo-png-814209.37ea1288.png"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.6353a720.js",
     "static/js/2.e75a3327.chunk.js",
-    "static/css/main.3f3f8516.chunk.css",
+    "static/css/main.05ac5745.chunk.css",
     "static/js/main.322caa29.chunk.js"
   ]
 }
