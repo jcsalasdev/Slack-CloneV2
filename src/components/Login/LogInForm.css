@@ -68,5 +68,6 @@ button.btn {
   form.login-form {
     box-shadow: none;
     width: 100vw;
+    padding: 0;
   }
 }

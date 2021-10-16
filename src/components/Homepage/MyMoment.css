@@ -56,5 +56,9 @@
 @media only screen and (max-width: 600px) {
   .welcome-container {
     border-radius: 0;
+    width: 100%;
+  }
+  .moment {
+    display: none;
   }
 }
