@@ -65,7 +65,8 @@ button.btn {
 }
 
 @media only screen and (max-width: 600px) {
-  .login-form {
+  form.login-form {
     box-shadow: none;
+    width: 100vw;
   }
 }
