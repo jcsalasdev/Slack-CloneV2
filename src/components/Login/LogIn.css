@@ -1,3 +1,9 @@
 .Log-in {
-	display: flex;
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .Log-in {
+    flex-direction: column-reverse;
+  }
 }
