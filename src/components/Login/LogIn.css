@@ -5,6 +5,6 @@
 @media only screen and (max-width: 600px) {
   .Log-in {
     flex-direction: column-reverse;
-    margin: 0;
+    padding: 0;
   }
 }
