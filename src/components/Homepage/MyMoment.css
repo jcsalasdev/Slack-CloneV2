@@ -52,3 +52,9 @@
   background-color: rgba(128, 0, 128, 0.671);
   border-radius: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+  .welcome-container {
+    border-radius: 0;
+  }
+}
