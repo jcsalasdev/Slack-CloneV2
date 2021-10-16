@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function Client() {
   const user = useGetUser();
   const [flag, setFlag] = useState("initial");
+
   function generateString() {
     return (Math.random() + 1).toString(36).substring(7);
   }
@@ -36,7 +37,7 @@ export default function Client() {
       <Switch>
         <Route path={`${url}/:type/:id/`} component={Chat} />
         <Route path={`${url}/new-channel`}>
-          <Maker setFlag={setFlag} />
+          <Maker changeFlag={changeFlag} />
         </Route>
       </Switch>
     </div>

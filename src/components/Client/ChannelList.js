@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetUser } from "../../context/UserProvider";
 import { Link } from "react-router-dom";
 
-export default function Channels() {
+export default function Channels(flag) {
   const user = useGetUser();
 
   //can be batched using useReducer hook
@@ -38,7 +38,7 @@ export default function Channels() {
         setLoading(false);
       }
     })(); //invocation here
-  }, []);
+  }, [flag]);
 
   return (
     <div className="channels">

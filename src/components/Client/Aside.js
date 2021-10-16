@@ -5,7 +5,7 @@ import "./Aside.css";
 import { useSetUser } from "../../context/UserProvider";
 import Users from "../Users/Users";
 
-export default function AsideNav() {
+export default function AsideNav(flag) {
   const { url } = useRouteMatch();
   const signOutUser = useSetUser();
 
@@ -29,7 +29,7 @@ export default function AsideNav() {
             <button className="fas fa-plus action" />
           </Link>
         </div>
-        <Channels />
+        <Channels flag={flag} />
       </div>
       <div>
         <div className="aside-btn">

@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <UsersLiProvider>
       <UserProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/Slack-CloneV2">
           <App />
         </BrowserRouter>
       </UserProvider>

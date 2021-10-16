@@ -5,7 +5,7 @@ import SignupForm from "./components/Signup/SignupForm";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Slack-CloneV2">
       <Switch>
         <Route exact path={"/"} component={LogIn} />
         <Route path={"/signup"} component={SignupForm} />
